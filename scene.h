@@ -7,8 +7,12 @@
 /******************** Scene representing the simulated landscape *********************/
 /*************************************************************************************/
 class Ship;
+
 class Scene : public QGraphicsScene
 {
+
+protected:
+    void keyPressEvent(QKeyEvent *e);
   Q_OBJECT
 public:
   Scene(qreal,qreal);                                      // constructor

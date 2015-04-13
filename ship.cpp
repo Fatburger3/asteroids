@@ -2,9 +2,6 @@
 
 #include <QPainter>
 
-#define SHIP_SIZE 10
-#define PEN_SIZE 2
-
 /*************************************************************************************/
 /******************* Represents a radio Ship in the simulation ********************/
 /*************************************************************************************/
@@ -21,10 +18,13 @@ Ship::Ship( qreal x, qreal y ) : QGraphicsItem()
 
 void  Ship::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-  // paint Ship symbol, must be smaller than bounding rectangle
   painter->setRenderHint( QPainter::Antialiasing );
-  painter->setPen( QPen( Qt::black, PEN_SIZE ));
-  painter->drawLine(SHIP_SIZE, SHIP_SIZE*2, -SHIP_SIZE, SHIP_SIZE*2);
-  painter->drawLine(0, 0, SHIP_SIZE, SHIP_SIZE*2);
-  painter->drawLine(0, 0, -SHIP_SIZE, SHIP_SIZE*2);
+  painter->setPen( QPen( Qt::white, 2 ));
+
+
+  int x = 6;
+  int y = 3;
+  painter->drawLine(0,0,x,x*y);
+  painter->drawLine(0,0,-x,x*y);
+  painter->drawLine(x-1,(x-1)*y,1-x,(x-1)*y);
 }

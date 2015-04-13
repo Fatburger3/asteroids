@@ -1,6 +1,5 @@
 #include "scene.h"
 #include "ship.h"
-
 /*************************************************************************************/
 /******************** Scene representing the simulated landscape *********************/
 /*************************************************************************************/
@@ -11,12 +10,12 @@ Scene::Scene(qreal x, qreal y) : QGraphicsScene()
 {  // create invisible item to provide default top-left anchor to scene
     addLine( 0, 0, 0, 1, QPen(Qt::transparent, 1) );
 
-    addItem(
+    addItem(ship = new Ship(x/2,y/2));
+    setBackgroundBrush(QBrush(Qt::black, Qt::SolidPattern));
+}
+void Scene::keyPressEvent(QKeyEvent *e)
+{
 
-
-                ship = new Ship(x/2,y/2)
-
-
-            );
-
+    ship->setRotation(45);
+    QGraphicsScene::keyPressEvent(e);
 }
