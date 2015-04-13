@@ -16,6 +16,5 @@ Scene::Scene(qreal x, qreal y) : QGraphicsScene()
 void Scene::keyPressEvent(QKeyEvent *e)
 {
 
-    ship->setRotation(45);
     QGraphicsScene::keyPressEvent(e);
 }
